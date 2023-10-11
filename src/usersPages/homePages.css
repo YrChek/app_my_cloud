@@ -1,0 +1,226 @@
+.exit_section {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 15px 0;
+}
+.button_exit {
+  width: 100px;
+  margin-left: auto;
+  padding: 5px;
+  box-sizing: border-box;
+}
+main {
+  display: flex;
+  width: 100%;
+  height: 85vh;
+}
+.user_profile {
+  min-width: 220px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  /* flex-grow: 1; */
+}
+li {
+  margin-bottom: 10px;
+  overflow-wrap: break-word;
+}
+.user_contetn {
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  /* flex-grow: 1; */
+  overflow-y: auto;
+}
+.user_item_content {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid black;
+  align-items: center;
+  font-size: 14px;
+  color: black
+}
+.user_item_div_picture {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+.user_item_picture {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+.user_item_picture_name {
+  flex-basis: 15%;
+  padding: 5px;
+  border-right: 1px solid black;
+}
+.user_item_comment_comment {
+  flex-basis: 60%;
+  padding: 5px;
+  border-right: 1px solid black;
+}
+.user_item_content_buttons {
+  padding: 5px;
+  box-sizing: border-box;
+  margin-left: auto;
+}
+.bnt_page {
+  margin-left: 5px;
+}
+.download_section {
+  margin: 15px;
+}
+
+.user_content_table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse; 
+}
+.user_content_table_caption {
+  font-size: 16px;
+  font-weight: bold;
+}
+.user_content_table_thead th:nth-child(1){
+  width: 80px;
+  border: 1px solid black;
+}
+.user_content_table_thead th:nth-child(2){
+  width: 15%;
+  border: 1px solid black;
+}
+.user_content_table_thead th:nth-child(3){
+  width: 10%;
+  border: 1px solid black;
+}
+.user_content_table_thead th:nth-child(4){
+  width: 10%;
+  border: 1px solid black;
+}
+.user_content_table_thead th:nth-child(5){
+  /* width: 45%; */
+  border: 1px solid black;
+}
+.user_content_table_thead th:nth-child(6){
+  width: 180px;
+  border: 1px solid black;
+}
+
+.user_item_content_table_tbody td:nth-child(1) {
+  text-align: left;
+  border: 1px solid black;
+}
+.user_item_content_table_tbody td:nth-child(2) {
+  border: 1px solid black;
+  padding: 0 5px;
+  overflow-wrap: anywhere;
+}
+.link_name {
+  color: black;
+  text-decoration: none;
+}
+.user_item_content_table_tbody td:nth-child(3) {
+  border: 1px solid black;
+  padding: 0 5px;
+}
+.user_item_content_table_tbody td:nth-child(4) {
+  border: 1px solid black;
+  padding: 0 5px;
+}
+.user_item_content_table_tbody td:nth-child(5) {
+  border: 1px solid black;
+  padding: 0 5px;
+}
+.user_item_content_table_tbody td:nth-child(6) {
+  text-align: right;
+  border: 1px solid black;
+  padding: 0 5px;
+}
+
+.error_page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(211, 211, 211, 0.3);
+  top: 0;
+  left: 0;
+}
+.error_popup {
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  text-align: center;
+  top: calc(50% - 150px);
+  left: calc(50% - 150px);
+}
+
+.display_item_content {
+  width: 850px;
+}
+.update_form {
+  display: flex;
+  margin-bottom: 30px;
+}
+.box_image_item_content {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  flex-grow: 0;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+.image_item_content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.texts_box_item_content {
+  display: block;
+  /* width: 100%; */
+  height: 400px;
+  flex-grow: 1;
+  box-sizing: border-box;
+  padding: 0 30px;
+}
+.box_name_item_content {
+  margin-bottom: 20px;
+}
+.name_item_content {
+  min-width: 50%;
+  width: 100%;
+  font-size: 16px;
+  padding: 5px;
+}
+.box_comment_item_content {
+  box-sizing: border-box;
+}
+.comment_item_content {
+  width: 100%;
+  min-width: 50%;
+  height: 280px;
+  font-size: 16px;
+  padding: 5px;
+  resize: none
+}
+.box_buttons_display_content {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.buttons_display_item_content {
+  position: relative;
+  width: 150px;
+  height: 50px;
+  margin-right: 20px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.button_save_display_item_content {
+  background-color: red;
+  color: white;
+}

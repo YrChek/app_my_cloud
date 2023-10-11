@@ -1,0 +1,49 @@
+.auth {
+  width: 640px;
+  text-align: center;
+  margin: auto;
+}
+.registration_form {
+  position: relative;
+}
+.form-hint {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.field{
+  box-sizing: border-box;
+  width: 640px;
+  border: 1px solid #222222;
+  padding: 15px 20px;
+}
+.red {
+  color: red;
+  text-align: left;
+}
+.indent {
+    margin-bottom: 35px;
+}
+.buttons_auth {
+  display: flex;
+  justify-content: space-evenly;
+}
+.button_auth {
+  padding: 15px 55px;
+  color: #ffffff;
+  background-color: #e74c3c;
+  font-size: 16px;
+}
+.button_reg {
+  padding: 15px 55px;
+  color: #ffffff;
+  background-color: #e74c3c;
+  font-size: 16px;
+}
+.button_auth_reg {
+  padding: 10px 55px;
+  color: #ffffff;
+  background-color: grey;
+  font-size: 16px;
+}
