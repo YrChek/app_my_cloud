@@ -1,16 +1,19 @@
 const http = process.env.REACT_APP_API_URL
 
-export default async function fetchGet(url, token) {
-  console.log('GET => ',url)
+export default async function fetchPATH(url, headers, body) {
+  console.log('PATCH => ',url)
   try {
     const response = await fetch(http + url, {
-      headers: {
-        Authorization: token
-      }
+      method: 'PATCH',
+      headers,
+      body
     })
     if (!response.ok) {
       const data = await response.json()
       return {status: true, data: data, errorTitle: response.statusText}
+    }
+    if (response.status !== 200) {
+      return {status: false, data: response.statusText, errorTitle: response.statusText}
     }
     const data = await response.json()
     return {status: false, data: data, errorTitle: ''}

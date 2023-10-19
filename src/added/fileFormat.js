@@ -17,15 +17,17 @@ const filesFormat = {
   '.wav': 'audio-80.png',
   '.mp4': 'video-80.png',
   '.avi': 'video-80.png',
-  '.mkv': 'video-80.png',
-  '.wmv': 'video-80.png',
-  '.flv': 'video-80.png',
   '.mpeg': 'video-80.png',
   '.fb2': 'FB-94.png',
   '.epub': 'FB-94.png',
   '.mobi': 'FB-94.png'
 }
 
+/**
+ * Функция определения ссылки на заглушку-изображение в зависимости от расширения файла
+ * @param filesName Имя файла с расширением
+ * @returns Ссылка на изображение в папке public
+ */
 export default function selectFilesFormat(filesName) {
   let fileExtension
   if (filesName.match(/\.[a-zA-Z0-9]+$/i)) fileExtension = filesName.match(/\.[a-zA-Z0-9]+$/i)[0]

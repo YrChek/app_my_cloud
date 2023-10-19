@@ -1,6 +1,6 @@
 /**
  * @description Сообщение об ошибках в запросе или заполнении форм
- * @requestor Registration.jsx, Authentication.jsx
+ * @requestor Registration.jsx, Authentication.jsx, HomePage.jsx
  * @param PROPS - Текст заголовка, текст сообщения, обработчик нажатия кнопки
  * @returns Отображение сообщения об ошибках
  */

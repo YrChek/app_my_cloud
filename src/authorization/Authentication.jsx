@@ -2,11 +2,11 @@ import { useNavigate } from 'react-router'
 import './auth.css'
 import { useState } from 'react'
 // import { validateDataPassword, validateDataUsername } from '../validateData'
-import ErrorOutput from '../errorOutput'
+import ErrorOutput from '../ErrorOutput'
 import fetchPOST from '../fetch/fetchPOST'
-import errorRequestText from '../errorText'
-import { useDispatch } from 'react-redux'
-import { setToken } from '../redux/actionCreator'
+import errorRequestText from '../added/errorText'
+// import { useDispatch } from 'react-redux'
+// import { setToken } from '../redux/actionCreator'
 
 const initFormAuth = {
   username: '',
@@ -22,8 +22,14 @@ const initInvalidData = {
   password: '',
 }
 
+/**
+ * Форма авторизации пользователя для получения токена
+ * @requestor Start.jsx || Реакция на нажатие кнопок выхода или сброса ошибок
+ * @returns Форма ввода логина и пароля. Переход к регистрации
+ */
+
 export default function AuthenticationForm() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const navigate = useNavigate()
   const [formAuth, setFormAuth] = useState(initFormAuth)
   const [errorRequest, setErrorRequest] = useState(initErrorRequest)
@@ -89,7 +95,7 @@ export default function AuthenticationForm() {
       const token = `Token ${data.auth_token}`;
       console.log('TOKEN -> ', token)
       localStorage.setItem('token', token)
-      setToken(dispatch)(token)
+      // setToken(dispatch)(token)
       navigate('/home')
     }
     fetch()

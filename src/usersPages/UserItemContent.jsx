@@ -1,8 +1,18 @@
-import dayjs from "dayjs"
-import selectFilesFormat from "../fileFormat"
-import { Link } from "react-router-dom"
+import dayjs from "dayjs";
+import selectFilesFormat from "../added/fileFormat";
+import { useNavigate } from "react-router-dom";
+import bytesConverter from "../added/byteConverter";
 
-export default function UserItemContent({ data, del }) {
+/**
+ * Компонент отображения отдельного контента в списке всего контента пользователя
+ * @param  data данные отдельного контента (props) 
+ * @param  sig setState для повторного рендеринга HomePage (props)
+ * @param  content setState данных текущего контента (props)
+ * @returns 
+ */
+export default function UserItemContent({ data, sig, content }) {
+
+  const navigate = useNavigate()
   const token = localStorage.getItem('token')
   // const { data } = props
   // const textURL = data.file.match(/.+\/+(.+)\..+$/)
@@ -10,6 +20,7 @@ export default function UserItemContent({ data, del }) {
   const date = dayjs(data.create_at).format('DD.MM.YYYY')
 
   const handlerDelete = (e) => {
+    // реакция на нажатие кнопки "Удалить"
     e.preventDefault()
     
     const http = process.env.REACT_APP_API_URL
@@ -22,33 +33,39 @@ export default function UserItemContent({ data, del }) {
         }
       })
   
-      del(prev => {
+      sig(prev => {
         return prev * -1
       })
     }
     delet()
   }
 
+  const reProps = () => {
+    content(data)
+  }
+
+  const transfer = () => {
+    navigate(`/home/${data.id}`)
+  }
+
   return (
     <tbody className="user_item_content_table_tbody">
       <tr>
-        <td>
+        <td onClick={reProps}>
           <div className="user_item_div_picture">
-            <Link to={`/page/${data.id}`}>
-              <img className="user_item_picture" src={selectFilesFormat(data.filename)} alt="картинка" />
-            </Link>
+            <img className="user_item_picture" src={selectFilesFormat(data.filename)} alt="картинка" />
+          </div>
+        </td>
+        <td onClick={reProps}>{data.filename}</td>
+        <td>{bytesConverter(Number(data.size))}</td>
+        <td>{date}</td>
+        <td onClick={reProps}>
+          <div className="user_comment_item_content">
+            {data.comment}
           </div>
         </td>
         <td>
-          <Link to={`/page/${data.id}`} className="link_name">
-            {data.filename}
-          </Link>
-        </td>
-        <td>{data.size}</td>
-        <td>{date}</td>
-        <td>{data.comment}</td>
-        <td>
-          <button className="button_update bnt_page" type="button">Изменить</button>
+          <button className="button_update bnt_page" type="button" onClick={transfer}>Изменить</button>
           <button className="button_delete bnt_page" type="button" onClick={handlerDelete}>Удалить</button>
         </td>
     </tr>

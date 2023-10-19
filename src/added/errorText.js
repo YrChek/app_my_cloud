@@ -10,6 +10,9 @@ const translator = {
   "Authentication credentials were not provided.": 'Учетные данные для проверки подлинности предоставлены не были.'
 }
 
+/**
+ * Функция перевода некоторых http-ответов на русский язык
+ */
 export default function errorRequestText(data) {
   let text = false
   if (data.username) text = data.username[0];

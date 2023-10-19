@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import './auth.css'
-import ErrorOutput from '../errorOutput'
+import ErrorOutput from '../ErrorOutput'
 import fetchPOST from '../fetch/fetchPOST'
-import errorRequestText from '../errorText'
-import { validateDataEmail, validateDataPassword, validateDataUsername } from '../validateData'
+import errorRequestText from '../added/errorText'
+import { validateDataEmail, validateDataPassword, validateDataUsername } from '../added/validateData'
 import { useNavigate } from 'react-router'
 
 
 /**
- * @description Форма регистрации пользователя
+ * Форма регистрации пользователя
  * @requestor Authentication.jsx
  * @operations Отправка данных формы регистрации на сервер по POST запросу
- * @operations При успешной регистрации, возврат к Authentication.jsx
+ * @operations При успешной регистрации, возврат к форме авторизации
  * @returns Форма регистрации либо сообщение ошибки регистрации
  */
 export default function RegistrationForm() {

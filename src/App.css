@@ -34,3 +34,12 @@
   top: 100px;
   left: calc(50% - 100px)
 }
+.italic {
+  font-style: italic;
+}
+.bold {
+  font-weight: bold;
+}
+.underline {
+  text-decoration: underline;
+}

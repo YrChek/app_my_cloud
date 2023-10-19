@@ -1,6 +1,7 @@
 const http = process.env.REACT_APP_API_URL
 
 export default async function fetchPOST(url, headers, body) {
+  console.log('POST => ',url)
   try {
     let response;
     if (!body) {
