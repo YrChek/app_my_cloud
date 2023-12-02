@@ -38,4 +38,18 @@ const initDownloadSection = {
   type: true
 }
 
-export { initItemContent, initErrorRequest, initTextFormUpdate, initUser, initDownloadSection }
+const initUsesList = [
+  {
+    id: 0,
+    username: 'no name',
+    full_name: 'no name',
+    email: 'no email',
+    is_staff: false,
+    files: {
+      sum: 0,
+      count: 0
+    }
+  }
+]
+
+export { initItemContent, initErrorRequest, initTextFormUpdate, initUser, initDownloadSection, initUsesList }

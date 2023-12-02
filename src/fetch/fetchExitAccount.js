@@ -2,7 +2,8 @@ import fetchPOST from "./fetchPOST"
 
 export default async function fetchExitAccount() {
   if (!localStorage.getItem('token')) return false
-    const url = 'auth/token/logout/'
+    // const url = 'auth/token/logout/'
+    const url = 'auth/logout/'
     const token = localStorage.getItem('token')
     const headers = {
       'Authorization': token

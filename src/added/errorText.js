@@ -7,7 +7,8 @@ const translator = {
   'A user with that username already exists.': 'Пользователь с таким именем уже существует.',
   'Unable to log in with provided credentials.': 'Не удается войти в систему с предоставленными учетными данными.',
   'Invalid token.': 'Недопустимый токен.',
-  "Authentication credentials were not provided.": 'Учетные данные для проверки подлинности предоставлены не были.'
+  "Authentication credentials were not provided.": 'Учетные данные для проверки подлинности предоставлены не были.',
+  "Not found.": 'Данные по вашему запросу отсутствуют'
 }
 
 /**

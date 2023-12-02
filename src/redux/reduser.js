@@ -1,13 +1,15 @@
 import { USER_TOKEN, USER_DATA, USER_CONTENT } from "./action";
 
+console.log('Reduser Init')
+
 const initialState = {
-  token: false,
-  user_data: {
+  getToken: false,
+  getUserData: {
     username: 'No user',
     full_name: 'No name',
     email: 'No email',
   },
-  user_content: []
+  getUserContent: []
 }
 
 const reduser = (state=initialState, action) => {
@@ -15,17 +17,17 @@ const reduser = (state=initialState, action) => {
     case USER_TOKEN: 
       return {
         ...state,
-        token: action.payload
+        getToken: action.payload
       }
     case USER_DATA: 
       return {
         ...state,
-        user_data: action.payload
+        getUserData: action.payload
       }
     case USER_CONTENT: 
       return {
         ...state,
-        user_content: action.payload
+        getUserContent: action.payload
       }
     default: return state
   }

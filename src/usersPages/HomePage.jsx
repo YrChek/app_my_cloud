@@ -48,8 +48,8 @@ export default function HomePage() {
         return
       }
       // setUserData(dispatch)(data[0])
-        const { username, full_name,  email} = data[0]
-        setUser({...user, username, full_name, email})
+        const { username, full_name,  email, is_staff} = data[0]
+        setUser({...user, username, full_name, email, is_staff})
     }
     userDataFeth()
   }, [])
@@ -156,9 +156,17 @@ export default function HomePage() {
     setErrorRequest({...errorRequest, status: false, errorText: ''})
   }
 
+  const handlerButtonControlPanel = (e) => {
+    e.preventDefault()
+    localStorage.removeItem('param')
+    navigate('/admin/users')
+  }
+
   return (
     <div className="home_page">
         <section className="exit_section">
+          {user.is_staff? <button className="control_button" onClick={handlerButtonControlPanel}>Панель управления</button> : null}
+          {/* <button className="control_button" onClick={handlerButtonControlPanel}>Панель управления</button> */}
           <button className="button_exit" onClick={handlerButtonExit}>Выйти</button>
         </section>
         <main>

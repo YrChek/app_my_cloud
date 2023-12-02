@@ -10,7 +10,7 @@ export default function bytesConverter(bytes) {
   }
 
   const bytesInKilobytes = 1024;
-  const round = 2;
+  const round = 1;
   const sizesText = [
     'B',
     'KB',

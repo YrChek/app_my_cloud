@@ -3,7 +3,7 @@ export function validateDataUsername (username) {
   if (username.length > 150) return 'Слишком длинное имя';
   if (/.*[\s].*/.test(username)) return 'Не используйте пробел.'
   if (!/^[a-zA-Z]/.test(username)) return 'Первым символом должна быть буква'
-  if (!/^[a-zA-Z][a-zA-Z0-9-_@+-]{4,150}$/.test(username)) return 'Имя пишется латинскими буквами и может включать в себя знаки "@ _ + - "'
+  if (!/^[a-zA-Z][a-zA-Z0-9-_@+-]{3,150}$/.test(username)) return 'Имя пишется латинскими буквами и может включать в себя знаки "@ _ + - "'
   return false
 }
 

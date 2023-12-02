@@ -5,8 +5,8 @@ import { useState } from 'react'
 import ErrorOutput from '../ErrorOutput'
 import fetchPOST from '../fetch/fetchPOST'
 import errorRequestText from '../added/errorText'
-// import { useDispatch } from 'react-redux'
-// import { setToken } from '../redux/actionCreator'
+import { useDispatch } from 'react-redux'
+import { setToken } from '../redux/actionCreator'
 
 const initFormAuth = {
   username: '',
@@ -29,7 +29,7 @@ const initInvalidData = {
  */
 
 export default function AuthenticationForm() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate()
   const [formAuth, setFormAuth] = useState(initFormAuth)
   const [errorRequest, setErrorRequest] = useState(initErrorRequest)
@@ -57,7 +57,8 @@ export default function AuthenticationForm() {
   const handlerButtonAuth = (e) => {
     // получение токена
     e.preventDefault()
-    const url = 'auth/token/login/'
+    // const url = 'auth/token/login/'
+    const url = 'auth/login/'
     const headers = {
       'Content-Type': 'application/json'
     }
@@ -95,7 +96,7 @@ export default function AuthenticationForm() {
       const token = `Token ${data.auth_token}`;
       console.log('TOKEN -> ', token)
       localStorage.setItem('token', token)
-      // setToken(dispatch)(token)
+      setToken(dispatch)(token)
       navigate('/home')
     }
     fetch()

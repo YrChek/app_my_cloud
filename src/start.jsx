@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
-// import { useDispatch } from "react-redux"
+// import { useSelector } from "react-redux"
 // import { setToken } from "./redux/actionCreator"
 
 const http = process.env.REACT_APP_API_URL
@@ -16,6 +16,7 @@ export default function Start() {
   const navigate = useNavigate()
   const [response, setResponse] = useState(true)
   const [useSignal, setUseSignal] = useState(1)
+  // const { getUserContent} = useSelector((state) => state.reduser)
 
 
   useEffect(() => {
@@ -29,6 +30,7 @@ export default function Start() {
       }
       if (resp && resp.ok) {
         const token = localStorage.getItem('token')
+        // const token = getUserContent
         if (token) {
           // setToken(dispatch)(token)
           navigate('/home', {replace: true})

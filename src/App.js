@@ -6,6 +6,9 @@ import RegistrationForm from './authorization/Registration'
 import AuthenticationForm from './authorization/Authentication'
 import HomePage from './usersPages/HomePage'
 import UpdateItemContent from './usersPages/UpdateItemContent'
+import UsersList from './adminPages/UsersList'
+import UserFiles from './adminPages/UserFiles'
+import ControlButtons from './adminPages/ControlButtons'
 
 function App() {
   console.log('App')
@@ -14,6 +17,11 @@ function App() {
     <div className='app'>
       <Routes>
         <Route path='/' element={<Start />} />
+        {/* <Route path='/admin' element={<UsersList />} /> */}
+        <Route path='/admin' element={<ControlButtons />}>
+          <Route path='users' element={<UsersList />} />
+          <Route path='user/:id/:login/:name/:email' element={<UserFiles />}/>
+        </Route>
         <Route path='/home' element={<HomePage />} />
         <Route path='/page' element={<FormDataReq />} />
         <Route path='/home/:id' element={<UpdateItemContent />} />
