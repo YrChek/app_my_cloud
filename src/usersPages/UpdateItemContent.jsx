@@ -5,6 +5,7 @@ import "./homePages.css";
 import errorRequestText from "../added/errorText";
 import fetchPATH from "../fetch/fetchPATCH";
 import { initItemContent, initErrorRequest, initTextFormUpdate } from "../data/initData";
+import { useSelector } from "react-redux";
 
 /**
  * Компонент для проведения пользователем доступных изменений контента
@@ -13,7 +14,6 @@ import { initItemContent, initErrorRequest, initTextFormUpdate } from "../data/i
  */
 
 export default function UpdateItemContent() {
-  console.log('UpdateItemContent')
 
   const param = useParams();
   const navigate = useNavigate();
@@ -22,15 +22,17 @@ export default function UpdateItemContent() {
   const [textFormUpdate, setTextFormUpdate] = useState(initTextFormUpdate);  // вводимые пользователем данные в форму ввода
   const [errorRequest, setErrorRequest] = useState(initErrorRequest);        // параметры для отображения сообщения об ошибке
   const token = localStorage.getItem('token');
+  const { getUserContent } = useSelector((state) => state.reduser)
   
   useEffect(() => {
     // получение и обработка данных из Local Storage 
-    const userStorage = localStorage.getItem('userData');
+    // const userStorage = localStorage.getItem('userData');
     let itemContent;
     try {
-      const userContent = JSON.parse(userStorage);
-      itemContent = userContent.filter((el) => Number(el.id) === Number(param.id))[0];
-      // setContent(itemContent);
+      // const userContent = JSON.parse(userStorage);
+      // itemContent = userContent.filter((el) => Number(el.id) === Number(param.id))[0];
+
+      itemContent = getUserContent.filter((el) => Number(el.id) === Number(param.id))[0];
       const comment = itemContent.comment;
       const regxp = /(^.+)(\.[a-zA-Z0-9]+)$/.exec(itemContent.filename)
       const filename = regxp[1]

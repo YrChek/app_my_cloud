@@ -12,8 +12,6 @@ import bytesConverter from "../added/byteConverter";
  */
 
 export default function ViewItemContent({ data, exit }) {
-  console.log('ViewItemContent')
-  // console.log(data)
 
   const navigate = useNavigate();
 

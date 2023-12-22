@@ -11,7 +11,6 @@ const http = process.env.REACT_APP_API_URL
  * @returns Вывод сообщения при недоступности сервера 
  */
 export default function Start() {
-  console.log('START')
   // const dispatch = useDispatch();
   const navigate = useNavigate()
   const [response, setResponse] = useState(true)
@@ -23,7 +22,6 @@ export default function Start() {
     const request = async () => {
       let resp
       try {
-        console.log('GET => /')
         resp = await fetch(`${http}/test`)
       } catch (error) {
         console.log(error)

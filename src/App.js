@@ -11,7 +11,6 @@ import UserFiles from './adminPages/UserFiles'
 import ControlButtons from './adminPages/ControlButtons'
 
 function App() {
-  console.log('App')
 
   return (
     <div className='app'>

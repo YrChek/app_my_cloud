@@ -10,8 +10,8 @@ import fetchExitAccount from "../fetch/fetchExitAccount";
 import errorRequestText from "../added/errorText";
 import ErrorOutput from "../ErrorOutput";
 import { initUser, initErrorRequest, initDownloadSection  } from "../data/initData";
-// import { useDispatch, useSelector } from "react-redux";
-// import { setUserData, setUserContent } from "../redux/actionCreator";
+import { useDispatch, useSelector } from "react-redux";
+import { setReduserUserContent } from "../redux/actionCreator";
 
 
 /**
@@ -19,7 +19,6 @@ import { initUser, initErrorRequest, initDownloadSection  } from "../data/initDa
  * @returns Личные данные пользователя, список его контента, кнопки управления, выбор и загрузка файлов на сервер
  */
 export default function HomePage() {
-  console.log('HomePage')
   
   const token = localStorage.getItem('token')
 
@@ -27,15 +26,15 @@ export default function HomePage() {
   const navigate = useNavigate()
   const uploadRef = useRef();
   const [user, setUser] = useState(initUser);
-  const [userContent, setUserContent] = useState([]);
+  // const [userContent, setUserContent] = useState([]);
   const [itemContent, setItemContent] = useState(false);
   const [selectedFile, setSelectedFile] = useState(false);
   const [dataDownloadSection, setdataDownloadSection] =useState(initDownloadSection);
   const [signal, setSignal] = useState(1);
   const [errorRequest, setErrorRequest] = useState(initErrorRequest);
 
-  // const { user_data, user_content} = useSelector((state) => state.reduser) // почему при перезагрузке страницы редюсер заново инициализируется?
-  // const dispatch = useDispatch();
+  const { getUserContent } = useSelector((state) => state.reduser) // почему при перезагрузке страницы редюсер заново инициализируется?
+  const dispatch = useDispatch();
 
   useEffect(() => {
     // получение личных данных пользователя
@@ -62,12 +61,14 @@ export default function HomePage() {
       if (status) {
         const errorText = errorRequestText(data)
         setErrorRequest({...errorRequest, status, title: errorTitle, errorText})
-        setUserContent([])
+        setReduserUserContent(dispatch)([])
+        // setUserContent([])
         return
       }
         setdataDownloadSection({...dataDownloadSection, loading: 'off', comment:'', color:'white', height: '22px'})
-        setUserContent(data)
-        localStorage.setItem('userData', JSON.stringify(data))
+        // setUserContent(data)
+        // localStorage.setItem('userData', JSON.stringify(data))
+        setReduserUserContent(dispatch)(data)
     }
     contentFeth()
   }, [signal])
@@ -112,8 +113,8 @@ export default function HomePage() {
 
     const fetchDownload = async () => {
       const { status, data, errorTitle } = await fetchPOST(url, headers, body)
-      console.log('STATUS =>', status)
-      console.log('DATA =>', data)
+      // console.log('STATUS =>', status)
+      // console.log('DATA =>', data)
       console.log('ERROR =>', errorTitle)
       if (status) {
         const errorText = errorRequestText(data)
@@ -190,7 +191,8 @@ export default function HomePage() {
                   <th>Действия</th>
                 </tr>
               </thead>
-              {userContent.map((el) => <UserItemContent data={el} sig={setSignal} content={setItemContent} key={el.id}/>)}
+              {/* {userContent.map((el) => <UserItemContent data={el} sig={setSignal} content={setItemContent} key={el.id}/>)} */}
+              {getUserContent.map((el) => <UserItemContent data={el} sig={setSignal} content={setItemContent} key={el.id}/>)}
             </table>
             
           </section>

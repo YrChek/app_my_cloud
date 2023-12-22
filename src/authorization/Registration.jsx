@@ -15,6 +15,7 @@ import { useNavigate } from 'react-router'
  * @returns Форма регистрации либо сообщение ошибки регистрации
  */
 export default function RegistrationForm() {
+  
   const initForm = {
     username: '',
     password: '',
@@ -87,7 +88,6 @@ export default function RegistrationForm() {
         setErrorRequest({...errorRequest, status, title: errorTitle, errorText})
         return
       }
-      console.log('Registration OK')
       navigate('/auth')
     }
     fetch()

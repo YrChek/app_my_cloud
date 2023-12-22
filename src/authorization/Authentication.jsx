@@ -29,6 +29,7 @@ const initInvalidData = {
  */
 
 export default function AuthenticationForm() {
+
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const [formAuth, setFormAuth] = useState(initFormAuth)
@@ -94,7 +95,6 @@ export default function AuthenticationForm() {
         return
       }
       const token = `Token ${data.auth_token}`;
-      console.log('TOKEN -> ', token)
       localStorage.setItem('token', token)
       setToken(dispatch)(token)
       navigate('/home')

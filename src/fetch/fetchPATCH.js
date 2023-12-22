@@ -1,7 +1,6 @@
 const http = process.env.REACT_APP_API_URL
 
 export default async function fetchPATH(url, headers, body) {
-  console.log('PATCH => ',url)
   try {
     const response = await fetch(http + url, {
       method: 'PATCH',

@@ -6,7 +6,7 @@ import UserItem from "./UserItem";
 import './adminPages.css'
 
 export default function UsersList() {
-  console.log('usersList');
+
   const token = localStorage.getItem('token');
   const params = localStorage.getItem('param');
   const [errorRequest, setErrorRequest] = useState(initErrorRequest);
@@ -16,7 +16,7 @@ export default function UsersList() {
 
   useEffect(() => {
     // получение списка пользователей
-    // const url = 'staff/users';
+    
     const usersDataFeth = async () => {
       const { status, data, errorTitle } = await fetchGet(url, token)
       if (status) {
@@ -27,7 +27,6 @@ export default function UsersList() {
         setUsers({...users, count: data.count, next: data.next, previous: data.previous, results: data.results})
     }
     usersDataFeth()
-    console.log(url)
 
   }, [url])
 

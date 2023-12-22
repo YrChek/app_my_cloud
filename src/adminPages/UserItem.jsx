@@ -4,7 +4,7 @@ import { useState } from "react";
 import fetchPATH from "../fetch/fetchPATCH";
 
 export default function UserItem({ data }) {
-  console.log('UserItem')
+  
   const token = localStorage.getItem('token');
   const [dataUser, setDataUser] = useState(data)
 

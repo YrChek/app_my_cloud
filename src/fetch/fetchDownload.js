@@ -18,14 +18,4 @@ export default async function fetchDownloadFile(url, filename) {
     console.log(error)
     return 'ERROR'
   }
-
-  // fetch(url)
-  //   .then(response => response.blob())
-  //   .then(blob => {
-  //     const link = document.createElement('a');
-  //     link.href = URL.createObjectURL(blob);
-  //     link.download = filename;
-  //     link.click();
-  //   })
-  // .catch(error => console.error('Error downloading file:', error));
- }
+}

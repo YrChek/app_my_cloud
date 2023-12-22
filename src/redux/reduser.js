@@ -1,7 +1,5 @@
 import { USER_TOKEN, USER_DATA, USER_CONTENT } from "./action";
 
-console.log('Reduser Init')
-
 const initialState = {
   getToken: false,
   getUserData: {

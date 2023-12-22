@@ -16,7 +16,7 @@ export const setUserData = (dispatch) => (userData) => {
   dispatch(action)
 }
 
-export const setUserContent = (dispatch) => (userContent) => {
+export const setReduserUserContent = (dispatch) => (userContent) => {
   const action = {
     type: USER_CONTENT,
     payload: userContent
