@@ -12,7 +12,6 @@ export default function UserItem({ data }) {
     // Изменение статуса администратора
     e.preventDefault();
     const url = `staff/users/${dataUser.id}/`;
-    // const url = `staff/users/2/`;
     let staff;
     dataUser.is_staff ? staff = 'False' : staff = 'True'
     const headers = {
@@ -37,12 +36,11 @@ export default function UserItem({ data }) {
   return (
     <tbody className="user_data_item_content_table_tbody">
       <tr>
-        <td><Link to={`/admin/user/${dataUser.id}/${dataUser.username}/${dataUser.full_name 
+        <td><Link to={`/manager/user/${dataUser.id}/${dataUser.username}/${dataUser.full_name 
           ? dataUser.full_name 
           : 'no name'}/${dataUser.email}`}>{dataUser.username}</Link></td>
         <td>{dataUser.full_name}</td>
         <td>{dataUser.email}</td>
-        {/* <td onClick={() => status({admin: dataUser.id, is_staff: dataUser.is_staff})}>{dataUser.is_staff ? 'Да' : 'Нет'}</td> */}
         <td onClick={handlerClickingIsStaff}>
           {
             dataUser.is_staff 

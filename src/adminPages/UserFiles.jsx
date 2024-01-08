@@ -45,7 +45,7 @@ export default function UserFiles() {
         setErrorRequest({...errorRequest, status, title: errorTitle, errorText})
         return
       }
-        navigate('/admin/users',  {replace: true})
+        navigate('/manager/users',  {replace: true})
     }
     userDelete()
   }

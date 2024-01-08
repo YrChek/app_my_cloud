@@ -26,12 +26,8 @@ export default function UpdateItemContent() {
   
   useEffect(() => {
     // получение и обработка данных из Local Storage 
-    // const userStorage = localStorage.getItem('userData');
     let itemContent;
     try {
-      // const userContent = JSON.parse(userStorage);
-      // itemContent = userContent.filter((el) => Number(el.id) === Number(param.id))[0];
-
       itemContent = getUserContent.filter((el) => Number(el.id) === Number(param.id))[0];
       const comment = itemContent.comment;
       const regxp = /(^.+)(\.[a-zA-Z0-9]+)$/.exec(itemContent.filename)

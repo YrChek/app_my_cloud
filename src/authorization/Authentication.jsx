@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router'
 import './auth.css'
 import { useState } from 'react'
-// import { validateDataPassword, validateDataUsername } from '../validateData'
 import ErrorOutput from '../ErrorOutput'
 import fetchPOST from '../fetch/fetchPOST'
 import errorRequestText from '../added/errorText'
@@ -58,7 +57,6 @@ export default function AuthenticationForm() {
   const handlerButtonAuth = (e) => {
     // получение токена
     e.preventDefault()
-    // const url = 'auth/token/login/'
     const url = 'auth/login/'
     const headers = {
       'Content-Type': 'application/json'
@@ -69,17 +67,6 @@ export default function AuthenticationForm() {
     }
 
     const body = JSON.stringify(aythData)
-    // const validUsername = validateDataUsername(aythData.username)
-    // if (validUsername) {
-    //   setInvalidData({...invalidData, username: validUsername})
-    //   return
-    // }
-
-    // const validPassword = validateDataPassword(aythData.password)
-    // if (validPassword) {
-    //   setInvalidData({...invalidData, password: validPassword})
-    //   return
-    // }
 
     const fetch = async () => {
       const { status, data, errorTitle } = await fetchPOST(url, headers, body)
@@ -90,8 +77,6 @@ export default function AuthenticationForm() {
       }
       if (!data.auth_token) {
         setErrorRequest({...errorRequest, status: true, title: 'Неожиданная ошибка', errorText: 'Отсутствует авторизация'})
-        const response = JSON.stringify(data)
-        console.log(response)
         return
       }
       const token = `Token ${data.auth_token}`;

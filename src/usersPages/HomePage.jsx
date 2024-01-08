@@ -26,14 +26,13 @@ export default function HomePage() {
   const navigate = useNavigate()
   const uploadRef = useRef();
   const [user, setUser] = useState(initUser);
-  // const [userContent, setUserContent] = useState([]);
   const [itemContent, setItemContent] = useState(false);
   const [selectedFile, setSelectedFile] = useState(false);
   const [dataDownloadSection, setdataDownloadSection] =useState(initDownloadSection);
   const [signal, setSignal] = useState(1);
   const [errorRequest, setErrorRequest] = useState(initErrorRequest);
 
-  const { getUserContent } = useSelector((state) => state.reduser) // почему при перезагрузке страницы редюсер заново инициализируется?
+  const { getUserContent } = useSelector((state) => state.reduser)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -46,7 +45,6 @@ export default function HomePage() {
         setErrorRequest({...errorRequest, status, title: errorTitle, errorText})
         return
       }
-      // setUserData(dispatch)(data[0])
         const { username, full_name,  email, is_staff} = data[0]
         setUser({...user, username, full_name, email, is_staff})
     }
@@ -66,8 +64,6 @@ export default function HomePage() {
         return
       }
         setdataDownloadSection({...dataDownloadSection, loading: 'off', comment:'', color:'white', height: '22px'})
-        // setUserContent(data)
-        // localStorage.setItem('userData', JSON.stringify(data))
         setReduserUserContent(dispatch)(data)
     }
     contentFeth()
@@ -113,8 +109,6 @@ export default function HomePage() {
 
     const fetchDownload = async () => {
       const { status, data, errorTitle } = await fetchPOST(url, headers, body)
-      // console.log('STATUS =>', status)
-      // console.log('DATA =>', data)
       console.log('ERROR =>', errorTitle)
       if (status) {
         const errorText = errorRequestText(data)
@@ -160,14 +154,13 @@ export default function HomePage() {
   const handlerButtonControlPanel = (e) => {
     e.preventDefault()
     localStorage.removeItem('param')
-    navigate('/admin/users')
+    navigate('/manager/users')
   }
 
   return (
     <div className="home_page">
         <section className="exit_section">
           {user.is_staff? <button className="control_button" onClick={handlerButtonControlPanel}>Панель управления</button> : null}
-          {/* <button className="control_button" onClick={handlerButtonControlPanel}>Панель управления</button> */}
           <button className="button_exit" onClick={handlerButtonExit}>Выйти</button>
         </section>
         <main>
@@ -191,7 +184,6 @@ export default function HomePage() {
                   <th>Действия</th>
                 </tr>
               </thead>
-              {/* {userContent.map((el) => <UserItemContent data={el} sig={setSignal} content={setItemContent} key={el.id}/>)} */}
               {getUserContent.map((el) => <UserItemContent data={el} sig={setSignal} content={setItemContent} key={el.id}/>)}
             </table>
             

@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import selectFilesFormat from "../added/fileFormat";
 import { useNavigate } from "react-router-dom";
 import bytesConverter from "../added/byteConverter";
+import { http } from "../added/currentUrl";
 
 /**
  * Компонент отображения отдельного контента в списке всего контента пользователя
@@ -14,16 +15,13 @@ export default function UserItemContent({ data, sig, content }) {
 
   const navigate = useNavigate()
   const token = localStorage.getItem('token')
-  // const { data } = props
-  // const textURL = data.file.match(/.+\/+(.+)\..+$/)
-  // const text = decodeURI(textURL[1])
   const date = dayjs(data.create_at).format('DD.MM.YYYY')
+  // const http = process.env.REACT_APP_API_URL
 
   const handlerDelete = (e) => {
     // реакция на нажатие кнопки "Удалить"
     e.preventDefault()
     
-    const http = process.env.REACT_APP_API_URL
     const url = `users/item/data/${data.id}`
     const delet = async () => {
       await fetch(http + url, {

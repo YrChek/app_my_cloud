@@ -79,10 +79,7 @@ li {
 .view_block-download_section {
   position: absolute;
   width: 500px;
-  /* height: 500px; */
   box-sizing: border-box;
-  /* padding: 10px;
-  background-color: white; */
   bottom: 0;
   z-index: 10;
 }
@@ -133,11 +130,6 @@ li {
   bottom: 100px;
   left: calc(50% - 50px);
 }
-
-
-
-
-
 
 .error_page {
   position: absolute;
@@ -233,7 +225,6 @@ li {
 }
 .texts_box_update_item_content {
   display: block;
-  /* width: 100%; */
   height: 400px;
   flex-grow: 1;
   box-sizing: border-box;

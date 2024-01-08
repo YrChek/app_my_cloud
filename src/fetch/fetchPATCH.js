@@ -1,4 +1,6 @@
-const http = process.env.REACT_APP_API_URL
+import { http } from "../added/currentUrl"
+
+// const http = process.env.REACT_APP_API_URL
 
 export default async function fetchPATH(url, headers, body) {
   try {

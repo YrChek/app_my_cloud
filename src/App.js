@@ -16,8 +16,7 @@ function App() {
     <div className='app'>
       <Routes>
         <Route path='/' element={<Start />} />
-        {/* <Route path='/admin' element={<UsersList />} /> */}
-        <Route path='/admin' element={<ControlButtons />}>
+        <Route path='/manager' element={<ControlButtons />}>
           <Route path='users' element={<UsersList />} />
           <Route path='user/:id/:login/:name/:email' element={<UserFiles />}/>
         </Route>

@@ -1,6 +1,9 @@
-const http = process.env.REACT_APP_API_URL
+import { http } from "../added/currentUrl"
+
+// const http = process.env.REACT_APP_API_URL
 
 export default async function fetchGet(url, token) {
+  console.log('GET')
   try {
     const response = await fetch(http + url, {
       headers: {
